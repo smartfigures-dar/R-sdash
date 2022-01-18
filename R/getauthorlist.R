@@ -1,4 +1,4 @@
-#' get author list with all authors but not curators, in order
+#' get author list with all authors but not curators, in order, the function add this list to the panel information and return the panel.
 #'
 #' @param panels
 #'

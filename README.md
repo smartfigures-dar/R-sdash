@@ -33,28 +33,26 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(Rsdash)
-## basic example code
-sdashpanels(5)$title
-#> [1] "GIN-Tonic: a digital shelf for your research files."                                              
-#> [2] "Virtual Research environment: management of sensitive data"                                       
-#> [3] "Switch vector: label Cre+ and Cre- cells"                                                         
-#> [4] "SynapticPAC: accumulation of cAMP in pre-synaptic boutons"                                        
-#> [5] "eOPN3: suppress neurotransmitter release at synaptic terminals with high spatiotemporal precision"
-#> [6] "PAC-K: Potassium channel-based optogenetic silencing"                                             
-#> [7] "BiPOLES: reliable bidirectional control of neuronal activity"                                     
-#> [8] "ChrimsonSA: red light-activated channelrhodopsin mutant"                                          
-#> [9] "Is authorship sufficient for today's collaborative research? A call for contributor roles."
+## get public panels of group 5 (sfb1315 group members), add all authors information
+Panels_gr5= getauthorlist(sdashpanels(5))
+## plot the image and the list of authors surnames of first panel
+i=1
+sdashimage(Panels_gr5$id[i])
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+<img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+paste0(Panels_gr5$allauthors[[i]]$surname,collapse=", ")
+#> [1] "Yinth Andrea, Rost, Pofahl, Fernandes, Kopton, Moser, Holtkamp, Masala, Beed, Tukker, Oldani, Bönigk, Kohl, Baier, Schneider-Warme, Hegemann, Beck, Seifert, Schmitz"
+```
+
+<!---
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
 
 You can also embed plots, for example:
 
 <img src="man/figures/README-pressure-1.png" width="100%" />
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+--->

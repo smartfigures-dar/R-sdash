@@ -2,4 +2,5 @@
 
 export(getauthorlist)
 export(sdashcontact)
+export(sdashimage)
 export(sdashpanels)
